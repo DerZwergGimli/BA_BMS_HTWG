@@ -1,0 +1,547 @@
+//<File !Start!>
+// FILE: [projects_GSLC.h]
+// Created by GUIslice Builder version: [0.16.b004]
+//
+// GUIslice Builder Generated GUI Framework File
+//
+// For the latest guides, updates and support view:
+// https://github.com/ImpulseAdventure/GUIslice
+//
+//<File !End!>
+
+#ifndef _GUISLICE_GEN_H
+#define _GUISLICE_GEN_H
+#define FONTREF_MODE_1 GSLC_FONTREF_MODE_1
+
+// ------------------------------------------------
+// Headers to include
+// ------------------------------------------------
+#include "GUIslice.h"
+#include "GUIslice_drv.h"
+
+// Include any extended elements
+//<Includes !Start!>
+// Include extended elements
+#include "elem/XCheckbox.h"
+#include "elem/XProgress.h"
+//<Includes !End!>
+
+// ------------------------------------------------
+// Headers and Defines for fonts
+// Note that font files are located within the Adafruit-GFX library folder:
+// ------------------------------------------------
+//<Fonts !Start!>
+#include <SPI.h>
+#include "font_AwesomeF000.h"
+//<Fonts !End!>
+
+// ------------------------------------------------
+// Defines for resources
+// ------------------------------------------------
+//<Resources !Start!>
+//<Resources !End!>
+
+// ------------------------------------------------
+// Enumerations for pages, elements, fonts, images
+// ------------------------------------------------
+//<Enum !Start!>
+enum {E_PG_BASE,E_PG_BOOT,E_PG_HOME,E_PG_Monitor};
+enum {E_DRAW_LINE1,E_DRAW_LINE2,E_DRAW_LINE3,E_ELEM_BTN4,E_ELEM_BTN5
+      ,E_ELEM_BTN_HOME,E_ELEM_BTN_MONITOR,E_ELEM_BTN_SETTINGS
+      ,E_ELEM_CHECK1,E_ELEM_CHECK2,E_ELEM_CHECK3,E_ELEM_CHECK4
+      ,E_ELEM_CHECK5,E_ELEM_CHECK6,E_ELEM_CHECK7,E_ELEM_PROGRESS1
+      ,E_ELEM_PROGRESS10,E_ELEM_PROGRESS11,E_ELEM_PROGRESS12
+      ,E_ELEM_PROGRESS13,E_ELEM_PROGRESS14,E_ELEM_PROGRESS2
+      ,E_ELEM_PROGRESS3,E_ELEM_PROGRESS4,E_ELEM_PROGRESS5
+      ,E_ELEM_PROGRESS6,E_ELEM_PROGRESS7,E_ELEM_PROGRESS8
+      ,E_ELEM_PROGRESS9,E_ELEM_TEXT11,E_ELEM_TEXT12,E_ELEM_TEXT13
+      ,E_ELEM_TEXT14,E_ELEM_TEXT15,E_ELEM_TEXT16,E_ELEM_TEXT17
+      ,E_ELEM_TEXT18,E_ELEM_TEXT2,E_ELEM_TEXT20,E_ELEM_TEXT21
+      ,E_ELEM_TEXT22,E_ELEM_TEXT23,E_ELEM_TEXT24,E_ELEM_TEXT25
+      ,E_ELEM_TEXT26,E_ELEM_TEXT27,E_ELEM_TEXT28,E_ELEM_TEXT29
+      ,E_ELEM_TEXT3,E_ELEM_TEXT30,E_ELEM_TEXT31,E_ELEM_TEXT32
+      ,E_ELEM_TEXT33,E_ELEM_TEXT34,E_ELEM_TEXT35,E_ELEM_TEXT36
+      ,E_ELEM_TEXT37,E_ELEM_TEXT38,E_ELEM_TEXT39,E_ELEM_TEXT4
+      ,E_ELEM_TEXT40,E_ELEM_TEXT41,E_ELEM_TEXT42,E_ELEM_TEXT43
+      ,E_ELEM_TEXT44,E_ELEM_TEXT45,E_ELEM_TEXT46,E_ELEM_TEXT47
+      ,E_ELEM_TEXT5,E_ELEM_TEXT6,E_ELEM_TEXT7,E_ELEM_TEXT8};
+// Must use separate enum for fonts with MAX_FONT at end to use gslc_FontSet.
+enum {E_AWESOMEF000_12,E_BUILTIN10X16,E_BUILTIN20X32,E_BUILTIN5X8
+      ,MAX_FONT};
+//<Enum !End!>
+
+// ------------------------------------------------
+// Instantiate the GUI
+// ------------------------------------------------
+
+// ------------------------------------------------
+// Define the maximum number of elements and pages
+// ------------------------------------------------
+//<ElementDefines !Start!>
+#define MAX_PAGE                4
+
+#define MAX_ELEM_PG_BASE 5 // # Elems total on page
+#define MAX_ELEM_PG_BASE_RAM MAX_ELEM_PG_BASE // # Elems in RAM
+
+#define MAX_ELEM_PG_BOOT 1 // # Elems total on page
+#define MAX_ELEM_PG_BOOT_RAM MAX_ELEM_PG_BOOT // # Elems in RAM
+
+#define MAX_ELEM_PG_HOME 6 // # Elems total on page
+#define MAX_ELEM_PG_HOME_RAM MAX_ELEM_PG_HOME // # Elems in RAM
+
+#define MAX_ELEM_PG_Monitor 60 // # Elems total on page
+#define MAX_ELEM_PG_Monitor_RAM MAX_ELEM_PG_Monitor // # Elems in RAM
+//<ElementDefines !End!>
+
+// ------------------------------------------------
+// Create element storage
+// ------------------------------------------------
+gslc_tsGui m_gui;
+gslc_tsDriver m_drv;
+gslc_tsFont m_asFont[MAX_FONT];
+gslc_tsPage m_asPage[MAX_PAGE];
+
+//<GUI_Extra_Elements !Start!>
+gslc_tsElem                     m_asBasePage1Elem[MAX_ELEM_PG_BASE_RAM];
+gslc_tsElemRef                  m_asBasePage1ElemRef[MAX_ELEM_PG_BASE];
+gslc_tsElem                     m_asPage1Elem[MAX_ELEM_PG_BOOT_RAM];
+gslc_tsElemRef                  m_asPage1ElemRef[MAX_ELEM_PG_BOOT];
+gslc_tsElem                     m_asPage2Elem[MAX_ELEM_PG_HOME_RAM];
+gslc_tsElemRef                  m_asPage2ElemRef[MAX_ELEM_PG_HOME];
+gslc_tsElem                     m_asPage3Elem[MAX_ELEM_PG_Monitor_RAM];
+gslc_tsElemRef                  m_asPage3ElemRef[MAX_ELEM_PG_Monitor];
+gslc_tsXProgress                m_sXBarGauge1;
+gslc_tsXProgress                m_sXBarGauge2;
+gslc_tsXProgress                m_sXBarGauge3;
+gslc_tsXProgress                m_sXBarGauge4;
+gslc_tsXProgress                m_sXBarGauge5;
+gslc_tsXProgress                m_sXBarGauge6;
+gslc_tsXProgress                m_sXBarGauge7;
+gslc_tsXProgress                m_sXBarGauge8;
+gslc_tsXProgress                m_sXBarGauge9;
+gslc_tsXProgress                m_sXBarGauge10;
+gslc_tsXProgress                m_sXBarGauge11;
+gslc_tsXProgress                m_sXBarGauge12;
+gslc_tsXProgress                m_sXBarGauge13;
+gslc_tsXProgress                m_sXBarGauge14;
+gslc_tsXCheckbox                m_asXCheck1;
+gslc_tsXCheckbox                m_asXCheck2;
+gslc_tsXCheckbox                m_asXCheck3;
+gslc_tsXCheckbox                m_asXCheck4;
+gslc_tsXCheckbox                m_asXCheck5;
+gslc_tsXCheckbox                m_asXCheck6;
+gslc_tsXCheckbox                m_asXCheck7;
+
+#define MAX_STR                 100
+
+//<GUI_Extra_Elements !End!>
+
+// ------------------------------------------------
+// Program Globals
+// ------------------------------------------------
+
+// Element References for direct access
+//<Extern_References !Start!>
+extern gslc_tsElemRef* m_pElemProgress1;
+extern gslc_tsElemRef* m_pElemProgress1_2;
+extern gslc_tsElemRef* m_pElemProgress1_2_4;
+extern gslc_tsElemRef* m_pElemProgress1_2_4_6;
+extern gslc_tsElemRef* m_pElemProgress1_2_4_8;
+extern gslc_tsElemRef* m_pElemProgress1_2_4_8_10;
+extern gslc_tsElemRef* m_pElemProgress1_2_4_8_12;
+extern gslc_tsElemRef* m_pElemProgress1_2_4_8_14;
+extern gslc_tsElemRef* m_pElemProgress1_2_5;
+extern gslc_tsElemRef* m_pElemProgress1_2_7;
+extern gslc_tsElemRef* m_pElemProgress1_2_7_11;
+extern gslc_tsElemRef* m_pElemProgress1_2_7_13;
+extern gslc_tsElemRef* m_pElemProgress1_2_7_9;
+extern gslc_tsElemRef* m_pElemProgress1_3;
+extern gslc_tsElemRef* ptr_home_Current;
+extern gslc_tsElemRef* ptr_home_StateOfCage;
+extern gslc_tsElemRef* ptr_home_TotalVoltage;
+//<Extern_References !End!>
+
+// Define debug message function
+static int16_t DebugOut(char ch);
+
+// ------------------------------------------------
+// Callback Methods
+// ------------------------------------------------
+bool CbBtnCommon(void *pvGui, void *pvElemRef, gslc_teTouch eTouch, int16_t nX, int16_t nY);
+bool CbCheckbox(void *pvGui, void *pvElemRef, int16_t nSelId, bool bState);
+bool CbDrawScanner(void *pvGui, void *pvElemRef, gslc_teRedrawType eRedraw);
+bool CbKeypad(void *pvGui, void *pvElemRef, int16_t nState, void *pvData);
+bool CbListbox(void *pvGui, void *pvElemRef, int16_t nSelId);
+bool CbSlidePos(void *pvGui, void *pvElemRef, int16_t nPos);
+bool CbSpinner(void *pvGui, void *pvElemRef, int16_t nState, void *pvData);
+bool CbTickScanner(void *pvGui, void *pvScope);
+
+// ------------------------------------------------
+// Create page elements
+// ------------------------------------------------
+void InitGUIslice_gen()
+{
+  gslc_tsElemRef *pElemRef = NULL;
+
+  if (!gslc_Init(&m_gui, &m_drv, m_asPage, MAX_PAGE, m_asFont, MAX_FONT))
+  {
+    return;
+  }
+
+  // ------------------------------------------------
+  // Load Fonts
+  // ------------------------------------------------
+  //<Load_Fonts !Start!>
+    if (!gslc_FontSet(&m_gui,E_AWESOMEF000_12,GSLC_FONTREF_PTR,&AwesomeF000_12,1)) { return; }
+    gslc_FontSetMode(&m_gui, E_AWESOMEF000_12, FONTREF_MODE_1);	
+    if (!gslc_FontSet(&m_gui,E_BUILTIN10X16,GSLC_FONTREF_PTR,NULL,2)) { return; }
+    if (!gslc_FontSet(&m_gui,E_BUILTIN20X32,GSLC_FONTREF_PTR,NULL,4)) { return; }
+    if (!gslc_FontSet(&m_gui,E_BUILTIN5X8,GSLC_FONTREF_PTR,NULL,1)) { return; }
+  //<Load_Fonts !End!>
+
+  //<InitGUI !Start!>
+  gslc_PageAdd(&m_gui,E_PG_BASE,m_asBasePage1Elem,MAX_ELEM_PG_BASE_RAM,m_asBasePage1ElemRef,MAX_ELEM_PG_BASE);
+  gslc_PageAdd(&m_gui,E_PG_BOOT,m_asPage1Elem,MAX_ELEM_PG_BOOT_RAM,m_asPage1ElemRef,MAX_ELEM_PG_BOOT);
+  gslc_PageAdd(&m_gui,E_PG_HOME,m_asPage2Elem,MAX_ELEM_PG_HOME_RAM,m_asPage2ElemRef,MAX_ELEM_PG_HOME);
+  gslc_PageAdd(&m_gui,E_PG_Monitor,m_asPage3Elem,MAX_ELEM_PG_Monitor_RAM,m_asPage3ElemRef,MAX_ELEM_PG_Monitor);
+
+  // Now mark E_PG_BASE as a "base" page which means that it's elements
+  // are always visible. This is useful for common page elements.
+  gslc_SetPageBase(&m_gui, E_PG_BASE);
+
+
+  // NOTE: The current page defaults to the first page added. Here we explicitly
+  //       ensure that the main page is the correct page no matter the add order.
+  gslc_SetPageCur(&m_gui,E_PG_BOOT);
+  
+  // Set Background to a flat color
+  gslc_SetBkgndColor(&m_gui,GSLC_COL_BLACK);
+
+  // -----------------------------------
+  // PAGE: E_PG_BASE
+  
+
+  // Create E_DRAW_LINE1 line 
+  pElemRef = gslc_ElemCreateLine(&m_gui,E_DRAW_LINE1,E_PG_BASE,0,21,320,21);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_BLACK,GSLC_COL_GRAY_LT2,GSLC_COL_GRAY_LT2);
+  
+  // create E_ELEM_BTN_HOME button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_HOME,E_PG_BASE,
+    (gslc_tsRect){0,0,30,20},(char*)"\x15",0,E_AWESOMEF000_12,&CbBtnCommon);
+  
+  // create E_ELEM_BTN_SETTINGS button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_SETTINGS,E_PG_BASE,
+    (gslc_tsRect){290,0,30,20},(char*)"\x13",0,E_AWESOMEF000_12,&CbBtnCommon);
+  
+  // create E_ELEM_BTN_MONITOR button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_MONITOR,E_PG_BASE,
+    (gslc_tsRect){260,0,30,20},(char*)"n",0,E_AWESOMEF000_12,&CbBtnCommon);
+
+  // Create E_DRAW_LINE2 line 
+  pElemRef = gslc_ElemCreateLine(&m_gui,E_DRAW_LINE2,E_PG_BASE,0,219,320,219);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_BLACK,GSLC_COL_GRAY_LT2,GSLC_COL_GRAY_LT2);
+
+  // -----------------------------------
+  // PAGE: E_PG_BOOT
+  
+  
+  // Create E_ELEM_TEXT2 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT2,E_PG_BOOT,(gslc_tsRect){10,170,241,34},
+    (char*)"Booting...",0,E_BUILTIN20X32);
+
+  // -----------------------------------
+  // PAGE: E_PG_HOME
+  
+  
+  // Create E_ELEM_TEXT3 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT3,E_PG_HOME,(gslc_tsRect){40,50,145,34},
+    (char*)"000.00",0,E_BUILTIN20X32);
+  ptr_home_TotalVoltage = pElemRef;
+  
+  // Create E_ELEM_TEXT4 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT4,E_PG_HOME,(gslc_tsRect){190,50,13,18},
+    (char*)"V",0,E_BUILTIN10X16);
+  gslc_ElemSetTxtEnc(&m_gui,pElemRef,GSLC_TXT_ENC_UTF8);
+  
+  // Create E_ELEM_TEXT5 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT5,E_PG_HOME,(gslc_tsRect){40,80,145,34},
+    (char*)"000.00",0,E_BUILTIN20X32);
+  ptr_home_Current = pElemRef;
+  
+  // Create E_ELEM_TEXT6 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT6,E_PG_HOME,(gslc_tsRect){190,80,13,18},
+    (char*)"A",0,E_BUILTIN10X16);
+  
+  // Create E_ELEM_TEXT7 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT7,E_PG_HOME,(gslc_tsRect){40,110,145,34},
+    (char*)"000.00",0,E_BUILTIN20X32);
+  ptr_home_StateOfCage = pElemRef;
+  
+  // Create E_ELEM_TEXT8 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT8,E_PG_HOME,(gslc_tsRect){190,110,13,18},
+    (char*)"%",0,E_BUILTIN10X16);
+
+  // -----------------------------------
+  // PAGE: E_PG_Monitor
+  
+  
+  // create E_ELEM_BTN4 button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN4,E_PG_Monitor,
+    (gslc_tsRect){30,0,30,20},(char*)"1",0,E_BUILTIN5X8,&CbBtnCommon);
+  
+  // create E_ELEM_BTN5 button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN5,E_PG_Monitor,
+    (gslc_tsRect){60,0,50,20},(char*)"Monitor",0,E_BUILTIN5X8,&CbBtnCommon);
+  
+  // Create E_ELEM_TEXT11 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT11,E_PG_Monitor,(gslc_tsRect){62,46,49,10},
+    (char*)"00.0000V",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT12 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT12,E_PG_Monitor,(gslc_tsRect){12,46,43,10},
+    (char*)"Cell[1]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT13 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT13,E_PG_Monitor,(gslc_tsRect){62,126,49,10},
+    (char*)"00.0000V",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT14 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT14,E_PG_Monitor,(gslc_tsRect){62,66,49,10},
+    (char*)"00.0000V",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT15 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT15,E_PG_Monitor,(gslc_tsRect){62,146,49,10},
+    (char*)"00.0000V",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT16 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT16,E_PG_Monitor,(gslc_tsRect){62,86,49,10},
+    (char*)"00.0000V",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT17 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT17,E_PG_Monitor,(gslc_tsRect){62,166,49,10},
+    (char*)"00.0000V",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT18 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT18,E_PG_Monitor,(gslc_tsRect){62,106,49,10},
+    (char*)"00.0000V",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT20 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT20,E_PG_Monitor,(gslc_tsRect){12,66,43,10},
+    (char*)"Cell[2]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT21 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT21,E_PG_Monitor,(gslc_tsRect){235,45,37,10},
+    (char*)"NTC[1]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT22 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT22,E_PG_Monitor,(gslc_tsRect){235,60,37,10},
+    (char*)"NTC[2]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT23 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT23,E_PG_Monitor,(gslc_tsRect){235,75,37,10},
+    (char*)"NTC[3]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT24 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT24,E_PG_Monitor,(gslc_tsRect){235,90,37,10},
+    (char*)"NTC[4]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT25 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT25,E_PG_Monitor,(gslc_tsRect){235,105,37,10},
+    (char*)"NTC[5]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT26 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT26,E_PG_Monitor,(gslc_tsRect){235,120,37,10},
+    (char*)"NTC[6]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT27 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT27,E_PG_Monitor,(gslc_tsRect){235,135,37,10},
+    (char*)"NTC[7]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT28 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT28,E_PG_Monitor,(gslc_tsRect){12,86,43,10},
+    (char*)"Cell[3]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT29 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT29,E_PG_Monitor,(gslc_tsRect){12,106,43,10},
+    (char*)"Cell[4]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT30 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT30,E_PG_Monitor,(gslc_tsRect){12,126,43,10},
+    (char*)"Cell[5]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT31 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT31,E_PG_Monitor,(gslc_tsRect){12,146,43,10},
+    (char*)"Cell[6]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT32 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT32,E_PG_Monitor,(gslc_tsRect){12,166,43,10},
+    (char*)"Cell[7]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT33 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT33,E_PG_Monitor,(gslc_tsRect){60,30,49,10},
+    (char*)"Voltages",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT34 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT34,E_PG_Monitor,(gslc_tsRect){235,150,37,10},
+    (char*)"NTC[8]",0,E_BUILTIN5X8);
+
+  // Create progress bar E_ELEM_PROGRESS1 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS1,E_PG_Monitor,&m_sXBarGauge1,
+    (gslc_tsRect){120,48,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS2 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS2,E_PG_Monitor,&m_sXBarGauge2,
+    (gslc_tsRect){120,68,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS3 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS3,E_PG_Monitor,&m_sXBarGauge3,
+    (gslc_tsRect){145,48,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_3 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS4 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS4,E_PG_Monitor,&m_sXBarGauge4,
+    (gslc_tsRect){145,68,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_4 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS5 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS5,E_PG_Monitor,&m_sXBarGauge5,
+    (gslc_tsRect){120,88,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_5 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS6 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS6,E_PG_Monitor,&m_sXBarGauge6,
+    (gslc_tsRect){145,88,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_4_6 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS7 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS7,E_PG_Monitor,&m_sXBarGauge7,
+    (gslc_tsRect){120,108,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_7 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS8 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS8,E_PG_Monitor,&m_sXBarGauge8,
+    (gslc_tsRect){145,108,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_4_8 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS9 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS9,E_PG_Monitor,&m_sXBarGauge9,
+    (gslc_tsRect){120,128,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_7_9 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS10 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS10,E_PG_Monitor,&m_sXBarGauge10,
+    (gslc_tsRect){145,128,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_4_8_10 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS11 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS11,E_PG_Monitor,&m_sXBarGauge11,
+    (gslc_tsRect){120,148,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_7_11 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS12 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS12,E_PG_Monitor,&m_sXBarGauge12,
+    (gslc_tsRect){145,148,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_4_8_12 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS13 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS13,E_PG_Monitor,&m_sXBarGauge13,
+    (gslc_tsRect){120,168,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_7_13 = pElemRef;
+
+  // Create progress bar E_ELEM_PROGRESS14 
+  pElemRef = gslc_ElemXProgressCreate(&m_gui,E_ELEM_PROGRESS14,E_PG_Monitor,&m_sXBarGauge14,
+    (gslc_tsRect){145,168,25,5},0,100,0,GSLC_COL_GREEN,false);
+  m_pElemProgress1_2_4_8_14 = pElemRef;
+   
+  // create checkbox E_ELEM_CHECK1
+  pElemRef = gslc_ElemXCheckboxCreate(&m_gui,E_ELEM_CHECK1,E_PG_Monitor,&m_asXCheck1,
+    (gslc_tsRect){180,45,10,10},false,GSLCX_CHECKBOX_STYLE_X,GSLC_COL_ORANGE,false);
+   
+  // create checkbox E_ELEM_CHECK2
+  pElemRef = gslc_ElemXCheckboxCreate(&m_gui,E_ELEM_CHECK2,E_PG_Monitor,&m_asXCheck2,
+    (gslc_tsRect){180,65,10,10},false,GSLCX_CHECKBOX_STYLE_X,GSLC_COL_ORANGE,false);
+   
+  // create checkbox E_ELEM_CHECK3
+  pElemRef = gslc_ElemXCheckboxCreate(&m_gui,E_ELEM_CHECK3,E_PG_Monitor,&m_asXCheck3,
+    (gslc_tsRect){180,85,10,10},false,GSLCX_CHECKBOX_STYLE_X,GSLC_COL_ORANGE,false);
+   
+  // create checkbox E_ELEM_CHECK4
+  pElemRef = gslc_ElemXCheckboxCreate(&m_gui,E_ELEM_CHECK4,E_PG_Monitor,&m_asXCheck4,
+    (gslc_tsRect){180,105,10,10},false,GSLCX_CHECKBOX_STYLE_X,GSLC_COL_ORANGE,false);
+   
+  // create checkbox E_ELEM_CHECK5
+  pElemRef = gslc_ElemXCheckboxCreate(&m_gui,E_ELEM_CHECK5,E_PG_Monitor,&m_asXCheck5,
+    (gslc_tsRect){180,125,10,10},false,GSLCX_CHECKBOX_STYLE_X,GSLC_COL_ORANGE,false);
+   
+  // create checkbox E_ELEM_CHECK6
+  pElemRef = gslc_ElemXCheckboxCreate(&m_gui,E_ELEM_CHECK6,E_PG_Monitor,&m_asXCheck6,
+    (gslc_tsRect){180,145,10,10},false,GSLCX_CHECKBOX_STYLE_X,GSLC_COL_ORANGE,false);
+   
+  // create checkbox E_ELEM_CHECK7
+  pElemRef = gslc_ElemXCheckboxCreate(&m_gui,E_ELEM_CHECK7,E_PG_Monitor,&m_asXCheck7,
+    (gslc_tsRect){180,165,10,10},false,GSLCX_CHECKBOX_STYLE_X,GSLC_COL_ORANGE,false);
+  
+  // Create E_ELEM_TEXT35 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT35,E_PG_Monitor,(gslc_tsRect){130,30,25,10},
+    (char*)"Diff",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT36 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT36,E_PG_Monitor,(gslc_tsRect){175,30,25,10},
+    (char*)"Dis.",0,E_BUILTIN5X8);
+
+  // Create E_DRAW_LINE3 line 
+  pElemRef = gslc_ElemCreateLine(&m_gui,E_DRAW_LINE3,E_PG_Monitor,230,21,230,219);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_BLACK,GSLC_COL_GRAY_LT2,GSLC_COL_GRAY_LT2);
+  
+  // Create E_ELEM_TEXT37 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT37,E_PG_Monitor,(gslc_tsRect){280,45,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT38 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT38,E_PG_Monitor,(gslc_tsRect){280,60,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT39 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT39,E_PG_Monitor,(gslc_tsRect){280,75,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT40 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT40,E_PG_Monitor,(gslc_tsRect){280,90,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT41 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT41,E_PG_Monitor,(gslc_tsRect){280,105,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT42 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT42,E_PG_Monitor,(gslc_tsRect){280,120,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT43 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT43,E_PG_Monitor,(gslc_tsRect){280,135,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT44 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT44,E_PG_Monitor,(gslc_tsRect){280,150,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT45 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT45,E_PG_Monitor,(gslc_tsRect){285,30,31,10},
+    (char*)"Temp.",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT46 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT46,E_PG_Monitor,(gslc_tsRect){235,165,43,10},
+    (char*)"NTC[ic]",0,E_BUILTIN5X8);
+  
+  // Create E_ELEM_TEXT47 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT47,E_PG_Monitor,(gslc_tsRect){280,165,37,10},
+    (char*)"00.0\xf8C",0,E_BUILTIN5X8);
+  //<InitGUI !End!>
+
+  //<Startup !Start!>
+  //<Startup !End!>
+}
+
+#endif // end _GUISLICE_GEN_H
